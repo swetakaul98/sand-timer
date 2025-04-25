@@ -1,0 +1,211 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #d7bc92, #bc8c56);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    transition: background 1.5s ease;
+  }
+  
+  .container {
+    background-color: #FFF8F0;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+  }
+  
+  h1 {
+    margin-bottom: 30px;
+    color: #70503B;
+    font-size: 2.5rem;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  
+  input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #D1B48C;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: transparent;
+    text-align: center;
+  }
+  
+  button {
+    padding: 15px 30px;
+    background-color: #D1B48C;
+    border: none;
+    border-radius: 15px;
+    color: #5E452B;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background-color: #C4A577;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Hourglass styling */
+  .hourglass {
+    position: relative;
+    width: 200px;
+    height: 380px;
+    margin: 0 auto 30px;
+    transition: transform 0.5s ease;
+  }
+  
+  .hourglass:hover {
+    transform: scale(1.03);
+  }
+  
+  .cap {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 25px;
+    background-color: #8B4513;
+    border-radius: 6px;
+    z-index: 3;
+  }
+  
+  .top-cap {
+    top: 0;
+  }
+  
+  .bottom-cap {
+    bottom: 0;
+  }
+  
+  .glass {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 330px;
+    z-index: 1;
+  }
+  
+  .glass-half {
+    position: absolute;
+    width: 100%;
+    height: 165px;
+    background-color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+  }
+  
+  .glass-half.top {
+    top: 0;
+    border-radius: 0 0 70px 70px;
+  }
+  
+  .glass-half.bottom {
+    bottom: 0;
+    border-radius: 70px 70px 0 0;
+  }
+  
+  .sand-container {
+    position: absolute;
+    width: 100%;
+    background-color: #D9A441;
+    transition: height 0.1s linear;
+  }
+  
+  .sand-container.top {
+    bottom: 0;
+    height: 100%;
+    border-radius: 0 0 70px 70px;
+  }
+  
+  .sand-container.bottom {
+    bottom: 0;
+    height: 0%;
+    border-radius: 70px 70px 0 0;
+  }
+  
+  .neck {
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 0;
+    z-index: 2;
+    overflow: visible;
+  }
+  
+  .sand-flow {
+    position: absolute;
+    width: 15px;
+    height: 4px;
+    background-color: #D9A441;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  
+  .timer {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  /* Animation classes */
+  .hourglass.running .sand-flow {
+    animation: dropSand 0.8s infinite;
+  }
+  
+  @keyframes dropSand {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(1, 0.3);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(0) scale(1, 1);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0) scale(1, 1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0) scale(1, 0.3);
+    }
+  }
